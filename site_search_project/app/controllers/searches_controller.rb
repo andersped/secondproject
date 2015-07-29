@@ -1,7 +1,11 @@
 class SearchesController < ApplicationController
+  
+
   def index
 	  	@search = Search.new
 	  	@searches = Search.all
+	  	@user = User.find_by_id(3)
+	  	@bookmark = Bookmark.new
 	  end
 
 	  def new

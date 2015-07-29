@@ -1,4 +1,4 @@
-<%= form_for([@user, @bookmark], html:{class:"form-horizontal", role:"form"}) do |f| %>
+<%= form_for([@user, @bookmark], html:{:id => "bookmarkForm", class:"form-horizontal", role:"form"}) do |f| %>
 <%=render partial: 'bookmarks/errors', locals:{instance:@bookmark} %>
 
 	<div class="form-group">
@@ -15,14 +15,7 @@
 		</div>
 	</div>
 
-	<div class="form-group">
-	    <%= f.collection_check_boxes(:category_bookmark_ids, @categorybookmarks, :id, :name) do |b| %>
-	        <span>
-	            <%= b.check_box %>
-	            <%= b.label %>
-	        </span>
-	    <% end %>
-	  </div>
+
 
 	<div class="actions col-sm-offset-2">
 		<%= f.submit class:"btn btn-primary" %>
