@@ -1,51 +1,32 @@
-<!-- <div class="animated bounce"> -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <form class="form-horizontal">
-      <div class="form-group">
-        <div class="col-sm-5 col-sm-offset-3 col-xs-6 col-xs-offset-1">
-          <input type="text" class="form-control" id="inputtext" placeholder="search">
-        </div>
-        <button type="submit" id="search-btn" class="btn btn-default col-sm-1 col-xs-2">Search</button>
-        <div class="col-sm-1 pull-right">
-          <a href="#" id="login" class="navbar-brand" data-toggle="modal" data-target="#modal">Login</a>
-        </div>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">
+        <% if current_user %>
+        <%= link_to "Bookmark Categories", user_category_bookmarks_path(current_user) %>
+
+        <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+        <li class="active"><%= link_to "Bookmarks", user_bookmarks_path(current_user) %></li>
+        <li class="active"><%= link_to "Add Bookmark Category", new_user_category_bookmark_path(current_user) %></li>
+        <li class="active"><%= link_to "Add Bookmark", new_user_bookmark_path(current_user), :id => "newBookmark" %></li>
+         <li class="active"><%= link_to "Search", user_searches_path(current_user), :id => "newBookmark" %></li>
+        <% end %>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li class="navbar-text"><%= image_tag("#{current_user.avatar_url}", class: "img-rounded avatar") %></li>
-            <li><%= link_to "hello, #{current_user.username}", user_path(current_user)%></li>
-            <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
-          <% else %>
-            <!-- <li><%= link_to "Login", login_path %></li> -->
-            <!-- <div class="container"> -->
-<!-- </div> -->
-          <% end %>
-        </ul>
-    </form>
-  </nav>
-
-
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Hi, Kina</h4>
-      </div>
-      <div class="modal-body">
-        <h3>Modal Body</h3>
-        <%= link_to "Login", login_path %>
-        <%= link_to "Sign up here", signup_path %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <li><a href="/signup">Signup</a></li>
+        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-</div>
+</nav>

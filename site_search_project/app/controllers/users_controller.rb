@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+	before_action :confirm_logged_in, only:[:index]
+	
 	def index
 	  	@search = Search.new
 	  	@searches = User.all

@@ -62,8 +62,27 @@
 <% if @result %>
   <% @result.each do |mainResult| %>
     <ul class="list-unstyled col-sm-12">
-      <li class="col-sm-1"><a href="#" id="login" class="navbar-brand" data-toggle="modal" data-target="#modal_login"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
-      </li>
+      
+
+      
+      <%= form_for [@user, @bookmark] do |f| %>
+			
+			<%= f.hidden_field :name, :value => mainResult[:name]  %>
+			<li class="col-sm-1">
+			<%= f.button "", :class => "glyphicon glyphicon-star", :id => "login" %>
+			<% end %>
+			</li>
+			
+
+
+
+
+
+   
+
+
+
+
       <li class="search-title col-sm-11"><h4><%= link_to mainResult[:name], mainResult[:url].to_s %></h4></li>
       <li class="col-sm-12"><p><%= mainResult[:description] %></p></li>
     </ul>

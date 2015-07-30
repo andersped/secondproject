@@ -21,7 +21,7 @@
   def create
     @bookmark = @user.bookmarks.create bookmark_params
       if @bookmark.save
-        redirect_to user_bookmarks_path(@user), notice: "Bookmark has been added"
+        redirect_to user_searches_path(@user), notice: "Bookmark has been added"
       else
         render :new
       end
@@ -39,7 +39,7 @@
   def update
     @bookmark.update(bookmark_params)
     if @bookmark.save
-      redirect_to user_bookmarks_path(@bookmark), notice: 'Bookmark has been Successfully Updated'
+      redirect_to user_searches_path(@user), notice: 'Bookmark has been Successfully Updated'
     else
       render :edit
     end

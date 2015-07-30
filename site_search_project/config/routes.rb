@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 	get '/signup', to: "sessions#signup", as: 'signup'
 	post '/login', to: "sessions#attempt_login"
 	post '/signup', to: "sessions#create"
-	# get '/home', to: "sessions#index", as: 'home'
+	get '/home', to: "sessions#index", as: 'home'
 	delete '/logout', to: "sessions#logout", as: "logout"
 
-	root 'favorites#home'
+	root 'sessions#login'
 	# root 'sessions#index'
 
  # get 'searches/index', to: 'searches#index', as: 'searches'

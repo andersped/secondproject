@@ -16,16 +16,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-// $(document).ready(function() {
-//  // executes when HTML-Document is loaded and DOM is ready
-//  $('#searchResults').hide()
 
-//  $('#searchButton').click(function(){
-//     $('#searchResults').show().prop("disabled", false);
-//   });
-
-  
-// });
 
 
 
