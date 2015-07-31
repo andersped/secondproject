@@ -1,26 +1,3 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="nav-bar">
-  	
-  <form class="form-horizontal" method="POST" action="/searches">
-    <div class="form-group">
-      <div class="col-sm-5 col-sm-offset-3 col-xs-6 col-xs-offset-1">
-        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-        <input type="text" class="form-control" id="inputtext" placeholder="search" name="search[url]">
-      </div>
-      <button type="submit" id="search-btn" class="btn btn-default col-sm-1 col-xs-2">Search</button>
-
-    
-      <div id="login_link" class="col-sm-1 pull-right">
-      <% if current_user %>
-        <%= "hello, #{current_user.username}" %>
-        <%= link_to "Sign Out", logout_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign In", login_path %>
-      <% end %>
-      </div> 
-    </div>
-  </form>
-</nav>
-
 
 <!-- modal window -->
 <% if current_user %>
@@ -105,8 +82,8 @@
 
 
 <!-- go back to page -->
-<div class="container">
-<p class="toTop pull-right">top page</p>
+<div class="container wrapper">
+<p class="toTop">top page</p>
 </div>
 
 <!-- <a href="#" id="login" class="navbar-brand" data-toggle="modal" data-target="#modal_login"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a> -->

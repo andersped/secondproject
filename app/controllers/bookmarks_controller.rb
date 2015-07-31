@@ -2,7 +2,7 @@
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
   before_action :confirm_logged_in
   before_action :set_categorybookmarks, only: [:show]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_user, only: [:index, :new, :create]
   before_action :ensure_correct_user_for_bookmarks, only: [:edit, :update, :destroy]
 
   def index
@@ -20,6 +20,12 @@
 
   def create
     @bookmark = @user.bookmarks.create bookmark_params
+      
+    if bookmark_params[:url] = "https://www.facebook.com/"
+      logo = "http://blogs-images.forbes.com/peterhimler/files/2014/02/high-res-logo_facebook1.png"
+     end
+
+
       if @bookmark.save
         redirect_to searches_path, notice: "Bookmark has been added"
       else
@@ -28,9 +34,19 @@
   end
 
   def create_from_extension
+
+    logo = ""
+     if params[:title] == "www.facebook.com"
+      logo = "http://blogs-images.forbes.com/peterhimler/files/2014/02/high-res-logo_facebook1.png"
+     elsif params[:title] == "twitter.com"
+      logo = "http://cdn.animals-pics.com/pictures/gammavet.com/wp-content/uploads/2014/01/TwitterBird.png"
+     end
+
     user = User.find_by_id(params[:user_id])
-    user.bookmarks.create(name: params[:title], url: params[:url])
-     
+    user.bookmarks.create(name: params[:title], url: params[:url], logo:logo)
+    
+
+
     respond_to do |format|
       format.json { render :json => @site }
     end
@@ -67,6 +83,7 @@
         :name,
         :url,
         :user_id,
+        :logo,
         :category_bookmark_ids => []
         )
     end

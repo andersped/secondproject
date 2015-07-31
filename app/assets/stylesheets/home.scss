@@ -80,7 +80,7 @@ form {
 }
 
 .logo-container:nth-child(even) {
- border: 2px solid #95a5a6 ;
+ border: 2px solid #2c3e50 ;
  /*background-color: rgba(102, 255, 255, 0.7);*/
 }
 
@@ -147,6 +147,14 @@ li.search-title {
     color: #333333;
     margin-top: -20px;
  		font-size: 20px;
+}
+
+.wrapper {
+	text-align: center;
+}
+
+.signout-btn {
+	color: white;
 }
 
 
